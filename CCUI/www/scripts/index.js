@@ -5,15 +5,6 @@
 (function () {
     "use strict";
 
-    var wall = [{ Wallpaper: "wallLink", Vote: "votelink", Download: "downloadlink" },
-                { Wallpaper: "wallLink2", Vote: "votelink2", Download: "downloadlink2" }]
-    var imp = '<li><h2> [[=data.Wallpaper]]</h2><h4> Vote :[[=data.Vote]]</h4><h4>Download :[[=data.Download]]</h4></li>';
-    var runl = $.template(imp);
-    wall.forEach(function (item) {
-        $('#uolist').append(runl(item));
-
-    })
-
     if ($.isWin) {
         document.getElementById('themeStylesheet').setAttribute('href', './css/chui-win-3.9.2.css');
     }
@@ -30,7 +21,13 @@
         // Handle the Cordova pause and resume events
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener( 'resume', onResume.bind( this ), false );
-        
+        var random = Math.floor((Math.random() * 10000) + 1);
+        document.getElementById('display').innerHTML = "<h2>Enter number given below</h2><br>" + random;
+        var input = document.getElementById('input').value;
+        if (input == random)
+        { document.getElementById('msg').innerHTML = "<h2>Correct</h2>"; }
+        else
+        { document.getElementById('msg').innerHTML = "<h2>Incorrect,please re-enter</h2>"; }
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
         var parentElement = document.getElementById('deviceready');
         var listeningElement = parentElement.querySelector('.listening');
