@@ -6,32 +6,93 @@
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
     -->
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <script src="scripts/jquery-3.0.0.js"></script>
-        <script src="scripts/chui-3.9.2.js"></script>
-        <link id="themeStylesheet" rel="stylesheet" />
         <title>CCUI</title>
+        <link rel="stylesheet" href="css/chui-android-3.9.2.css">
+        <style type="text/css">
+      .square {
+      width: 100%;
+      color: #000;
+      font-family: Helvetica, Arial, Sans-Serif;
+      position: static;
+    }
+        </style>
     </head>
     <body>
-        <nav>   
-            <h2>Random</h2>
+ <nav>
+     <h1>Login</h1>
+ </nav>
+ <article class="current" id="mainArticle">
+     <div id="busy1" class="square"></div>
+     <section>      
+             <form id="loginForm" action="javascript:fakefucniton()">                
+                 <ul class='list' ui-implements='form'>
+                     <li class="vertical">
+                         <aside>
+                             <input id="loginUsername" placeholder="Username" type="text" name="username" autocapitalize="off" autocorrect="off" pattern=".{6}" required title="Minimum 6 characters">
+                         </aside>
+                        </li>                    
+                        <li>
+                             <aside>
+                                 <input id="loginPassword" placeholder="Password" type="password" name="password" autocapitalize="off" autocorrect="off" pattern=".{6}" required title="Minimum 6 characters">
+                             </aside>
+                         </li>
+                         <li>
+                             <p><button class="action" id="loginButton" type="submit">Login</button></p>
+                         </li>
+                        </ul>
+             </form>
+             <p><button class="action" id="signupButton">Sign up</button></p>
+                <p></p><div id="busy1" class="square"></div></p>
+         
+</section>
+     
+ </article>
+        <nav>
+        <button class="button back"></button>
+        <h1>Sign Up</h1></nav>
+        <article id="signupArticle" class="next">
+            <section>
+                <form id="submitForm" action='JavaScript:fakefunction()'>
+                    <ul class='list' ui-implements='form'>
+                        <li>
+                            <input id="signupUsername" type="text" name="username" placeholder="Username" autocapitalize="off" autocorrect="off" pattern=".{6}" required title="Minimum 6 characters" />
+                        </li>
+
+                        <li>
+                            <input id="signupPassword" type="password" name="password" placeholder="Password" autocapitalize="off" autocorrect="off" pattern=".{6}" required title="Minimum 6 characters" />
+                        </li>
+                        <li>
+                            <p><button class="action" id="signupSubmitButton" type="submit">Sign Up</button></p>
+                        </li>
+                    </ul>
+                    </form>
+                    <p><div id="busys" class="square"></div></p>
+</section>
+        </article>
+        <nav>
+            <button class="button back"></button>
+            <h1>Home</h1>
         </nav>
-        <article class="main">
-            <section>  
-                <center>
-                    <div id="display"></div>
-                    <input type="number" id="num" />
-                    <button id="submit">Submit</button>
-                    <div id="msg"></div>
-                </center>    
+        <article id="homeArticle" class="next">
+
+            <section>
+                <p>
+                    <h3 id="hMsg"></h3>
+                </p>
             </section>
         </article>
+
+       
+        <!-- Cordova reference, this is added to your app when it's built. -->  
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script src="scripts/jquery-3.0.0.js"></script>
+        <script src="scripts/chui-3.9.2.js"></script>
         <script type="text/javascript" src="scripts/index.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
     </body>
+
 </html>
