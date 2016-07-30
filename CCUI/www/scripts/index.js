@@ -16,10 +16,8 @@
         var parentElement = document.getElementById('deviceready');
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-        
-
-
-       
+          
+      
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
@@ -49,15 +47,16 @@
     
     //Login 
     $('#loginButton').on('singletap', function () {
+        $('#busyl').show();
+        $('#busyl').UIBusy({ 'color': ' #000000', 'size': 50 });
+        $('#busyl').find('.busy').UICenter();
         
-        $('#busy1').UIBusy({ 'color': ' #0b5394', 'size': 50 });
-        $('#busy1').find('.busy').UICenter();
         var username = $('#loginUsername').val();
         var password = $('#loginPassword').val();
         $.ajax({
             type: 'POST',
             url: 'http://wallplay.site88.net/php/check.php',
-            timeout: 5000,
+            timeout: 35000,
             data:
             {
                 loginUsername: username,
@@ -65,17 +64,20 @@
             },
 
             success: function (response) {
-                $('#busy1').hide();
-                if (response == 1) {
+               
+                if (response == 1) {                    
                     alert("Your Login ID or Password is Invalid");
+                    $('#busyl').hide();
                 }
                 else {
+                   
                     $("#hMsg").html("<center>" + response + "</center>");
                     $.UIGoToArticle("#homeArticle");
+                    $('#busyl').hide();
                 }
             },
             error: function (errorThrow) {
-                $('#busy1').hide()
+             
                 alert('Unknown error has occured,please try after sometime');
                 console.log(errorThrown);
             }
@@ -84,7 +86,8 @@
     });
     //Signup
     $('#signupSubmitButton').on('singletap', function () {
-        $('#busys').UIBusy({ 'color': ' #0b5394', 'size': 50 });
+        $('#busys').show();
+        $('#busys').UIBusy({ 'color': ' #000000', 'size': 50 });
         $('#busys').find('.busy').UICenter();
         var username = $('#signupUsername').val();
         var password = $('#signupPassword').val();
@@ -110,7 +113,8 @@
             }
 
         });
-    });   
+    });
+    //When pressed back at Home Article   
             
         
     
